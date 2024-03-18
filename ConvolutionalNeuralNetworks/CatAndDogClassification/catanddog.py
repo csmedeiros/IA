@@ -49,7 +49,7 @@ x_test /= 255
 
 from keras.preprocessing.image import ImageDataGenerator
 
-datagen_train = ImageDataGenerator(rescale=1./255, rotation_range=90, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
+datagen_train = ImageDataGenerator(rescale=1./255, rotation_range=60, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
 train = datagen_train.flow_from_directory('training_set', target_size=(64, 64), batch_size=32, class_mode='binary')
 
 datagen_test = ImageDataGenerator(rescale=1./255)
@@ -120,7 +120,7 @@ best = load_model('best.h5')
 
 results = best.evaluate(x_test, y_test)
 
-img = cv2.imread('training_set/gato/cat.500.jpg')
+img = cv2.imread('training_set/gato/cat.353.jpg')
 
 img = cv2.resize(img, (64, 64))
 
