@@ -102,7 +102,7 @@ model.add(Dense(units=1, activation='sigmoid'))
 
 from keras.optimizers import RMSprop
 
-model.compile(optimizer=RMSprop(decay=1e-6), loss='binary_crossentropy', metrics='binary_accuracy')
+model.compile(optimizer=RMSprop(decay=1e-6), loss='binary_crossentropy', metrics=['binary_accuracy'])
 
 from keras.callbacks import ModelCheckpoint
 
@@ -119,6 +119,8 @@ best = load_model('best.h5')
 
 
 results = best.evaluate(x_test, y_test)
+
+print("Percentual de acerto: {}%".format(results[1]*100))
 
 img = cv2.imread('training_set/gato/cat.353.jpg')
 
