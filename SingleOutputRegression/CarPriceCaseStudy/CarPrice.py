@@ -20,7 +20,7 @@ base = base.drop('brand', axis=1)
 base = base.loc[base['price'] > 400]
 base = base.loc[base['price'] < 350000]
 
-base = base.loc[base['yearOfRegistration'] < 2024]
+base = base.loc[base['yearOfRegistration'] < 2024] 
 base = base.loc[base['yearOfRegistration'] > 1940]
 
 

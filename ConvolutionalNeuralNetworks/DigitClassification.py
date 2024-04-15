@@ -21,16 +21,16 @@ x_test/=255
 y_test = np_utils.to_categorical(y_test, 10)
 y_train = np_utils.to_categorical(y_train, 10)
     
-    model = Sequential()
-    
-    model.add(Conv2D(32, (3, 3), input_shape=(28, 28, 1), activation='relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Flatten())
-    
-    model.add(Dense(units=128, activation'relu', ))
-    model.add(Dense(units=10, activation='softmax'))
-    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics='categorical_accuracy')
+model = Sequential()
 
-    model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test))
-    
-    results = model.evaluate(x_test y_test)
+model.add(Conv2D(32, (3, 3), input_shape=(28, 28, 1), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+
+model.add(Dense(units=128, activation='relu'))
+model.add(Dense(units=10, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics='categorical_accuracy')
+
+model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test))
+
+results = model.evaluate(x_test, y_test)
