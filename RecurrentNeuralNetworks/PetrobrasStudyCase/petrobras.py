@@ -60,8 +60,6 @@ best = load_model("best.h5")
 preds = best.predict(x_test)
 preds = scaler.inverse_transform(preds)
 
-preds = (preds+0.5)
-
 import matplotlib.pyplot as plt
 
 plt.plot(test, color='red', label="Preço Real")
